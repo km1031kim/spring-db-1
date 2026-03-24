@@ -1,10 +1,7 @@
 package hello.jdbc;
 
 import hello.jdbc.domain.Member;
-import hello.jdbc.repository.MemberRepository;
-import hello.jdbc.repository.MemberRepositoryV3;
-import hello.jdbc.repository.MemberRepositoryV4_1;
-import hello.jdbc.repository.MemberRepositoryV4_2;
+import hello.jdbc.repository.*;
 import hello.service.MemberServiceV3_3;
 import hello.service.MemberServiceV4;
 import lombok.extern.slf4j.Slf4j;
@@ -50,13 +47,13 @@ class MemberServiceV4Test {
         }
 
         @Bean
-        MemberRepository memberRepositoryV4() {
-            return new MemberRepositoryV4_2(dataSource);
+        MemberRepository memberRepositoryV5() {
+            return new MemberRepositoryV5(dataSource);
         }
 
         @Bean
         MemberServiceV4 memberServiceV4_1() {
-            return new MemberServiceV4(memberRepositoryV4());
+            return new MemberServiceV4(memberRepositoryV5());
         }
     }
 
